@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcy.dao.MemberInfoMapper">
+	<resultMap type="com.lcy.dto.MemberInfoDTO" id="MemberInfoDTO">
+		<result column="id" property="id"/>
+		<result column="register_name" property="registerName"/>
+		<result column="password" property="password"/>
+	</resultMap>
+	
+	<insert id="registerMember" parameterType="com.lcy.dto.MemberInfoDTO">
+		INSERT INTO member_info(register_name,password)
+		VALUES(
+			#{registerName}
+			,#{password}
+		)
+	</insert>
+	
+	<select id="loginByRegisterNameAndPassword"   parameterType="com.lcy.dto.MemberInfoDTO" resultMap="MemberInfoDTO">
+		SELECT * 
+		FROM member_info 
+		WHERE register_name = #{registerName}
+		AND password = #{password}
+	</select>
+	<select id="getMemberInfo" parameterType="java.lang.String" resultMap="MemberInfoDTO">
+		SELECT * 
+		FROM member_info 
+		WHERE register_name = #{value}
+	</select>
+	
+	<select id="testQuery" statementType="STATEMENT"  resultType="java.util.HashMap">
+		SELECT id id, t_num num,t_name name  FROM ${tableName} 
+	</select>
+</mapper>
