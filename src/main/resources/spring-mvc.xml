@@ -37,4 +37,13 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- 初始化加载properties文件 -->
+	<bean id="propertyConfigurer" class="com.lcy.common.util.InitPropertiesUtil">  
+	    <property name="locations">  
+	         <list>  
+	             <value>classpath:jdbc.properties</value>  
+	             <value>classpath:test.properties</value>  
+	         </list>  
+	    </property>   
+    </bean>
 </beans>

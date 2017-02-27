@@ -45,6 +45,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					<a href="member/loginOut.do" >退出登录</a>
   				</td>
   			</tr>
+  			<tr>
+  				<td><a href="test/getProperties.do" >查询初始化properties值</a></td>
+  			</tr>
   		</table>
     </div>
     <div>
